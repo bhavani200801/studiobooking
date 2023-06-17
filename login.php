@@ -31,16 +31,17 @@
                                             <h5 class="mb-3 pb-3">Sign into your account</h5>
                                             <div class="form-group form-outline mb-4">
                                                 <!-- <label for="username">User Name</label> -->
-                                                <input type="text" name="username" id="username" class="form-control" value="" placeholder="username">
+                                                <input type="text" name="username" id="username" class="form-control" value="<?php echo $_POST['username']; ?>" placeholder="username">
                                             </div>
                                             <div class="form-outline mb-4">
                                                 <!-- <label for="password">Password</label> -->
-                                                <input type="password" name="password" id="password" class="form-control" placeholder="password">
+                                                <input type="password" name="password" id="password" value="<?php echo $_POST['password']; ?>" class="form-control" placeholder="password">
                                             </div>
                                             <span class="text-danger">
                                             </span>
                                             <div class=".alertmsg text-danger m-0">
                                                 <ul class="list-unstyled m-0" id="alertmsg">
+                                                    <?php echo ($_SESSION['error_message'] ? "<li>" . $_SESSION['error_message'] . "</li>" : '') ?>
                                                 </ul>
                                             </div>
                                             <div class="pt-1 mb-4">

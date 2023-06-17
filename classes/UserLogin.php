@@ -9,10 +9,10 @@ class UserLogin
     public function loginCheck($data)
     {
         if (empty($data['username'])) {
-            return 1;
+            return "Please enter username";
         }
         if (empty($data['password'])) {
-            return 2;
+            return "Please enter password";
         }
 
         $query = "SELECT * FROM users WHERE username='" . $data['username'] . "'";
@@ -52,5 +52,11 @@ class UserLogin
         } else {
             return false;
         }
+    }
+
+    function checkLogout($userid)
+    {
+        $query = "UPDATE userhistory set loggedouttime = now() where userid = '" . $userid . "' and loggedouttime IS NULL ";
+        $result = mysqli_query($this->_connection, $query) or die("Couldnot execute the query. " . mysqli_error($this->_connection));
     }
 }

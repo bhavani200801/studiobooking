@@ -26,6 +26,7 @@ switch ($module) {
             exit();
         } else {
             session_unset();
+            $_SESSION['error_message'] = $return_message;
             require 'login.php';
             exit();
         }
@@ -33,6 +34,7 @@ switch ($module) {
 
     case 'LOGOUT':
         $userid = !empty($_POST['username']) ? $_POST['username'] : $_GET['id'];
+        $usersLogin->checkLogout($userid);
         session_unset();
         require 'login.php';
         break;
