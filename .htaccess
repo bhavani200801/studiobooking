@@ -1,0 +1,11 @@
+Options +FollowSymlinks
+RewriteEngine On
+RewriteBase /
+
+RewriteRule ^$ index.php [NC,QSA]
+RewriteRule ^view/(.*)/(.*)/(.*)/(.*)/(.*)$ view/index.php?do=$1&id=$2&page=$3&var1=$4&var2=$5 [NC,QSA]
+RewriteRule ^view/(.*)/(.*)/(.*)/(.*)$ view/index.php?do=$1&id=$2&page=$3&var1=$4 [NC,QSA]
+RewriteRule ^view/(.*)/(.*)/(.*)$ view/index.php?do=$1&id=$2&page=$3 [NC,QSA]
+RewriteRule ^view/(.*)/(.*)$ view/index.php?do=$1&id=$2 [NC,QSA]
+RewriteRule ^view/(.*)$ view/index.php?do=$1 [NC,QSA]
+RewriteRule ^view$ view/index.php [NC,QSA]
